@@ -25,13 +25,13 @@ public class IisAffMatchResultWriter implements AffMatchResultWriter {
     private static final long serialVersionUID = 1L;
 
     
-    private AffMatchResultConverter affMatchResultConverter = new AffMatchResultConverter();
+    private final AffMatchResultConverter affMatchResultConverter = new AffMatchResultConverter();
     
-    private DuplicateMatchedOrgStrengthRecalculator matchedOrgStrengthRecalculation = new DuplicateMatchedOrgStrengthRecalculator();
+    private final DuplicateMatchedOrgStrengthRecalculator matchedOrgStrengthRecalculation = new DuplicateMatchedOrgStrengthRecalculator();
     
-    private SparkAvroSaver sparkAvroSaver = new SparkAvroSaver();
+    private final SparkAvroSaver sparkAvroSaver = new SparkAvroSaver();
     
-    private AffMatchReportGenerator reportGenerator = new AffMatchReportGenerator();
+    private final AffMatchReportGenerator reportGenerator = new AffMatchReportGenerator();
     
     
     //------------------------ LOGIC --------------------------

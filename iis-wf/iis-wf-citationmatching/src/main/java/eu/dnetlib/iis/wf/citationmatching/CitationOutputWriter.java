@@ -21,7 +21,7 @@ public class CitationOutputWriter implements OutputWriter<Citation, NullWritable
     private static final long serialVersionUID = 1L;
 
 
-    private SparkAvroSaver avroSaver = new SparkAvroSaver();
+    private final SparkAvroSaver avroSaver = new SparkAvroSaver();
 
     private CitationMatchingCounterReporter citationMatchingReporter;
 

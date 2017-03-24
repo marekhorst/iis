@@ -84,13 +84,15 @@ public class DocumentMetadataConverter implements OafEntityWithRelsToAvroConvert
     @Override
     public DocumentMetadata convert(OafEntity oafEntity, Map<String, List<QualifiedOafJsonRecord>> relations) throws IOException {
         Preconditions.checkNotNull(oafEntity);
-        ResultProtos.Result sourceResult = oafEntity.getResult();
+        
         if (!oafEntity.hasResult()) {
             log.error("skipping: no result object for id " + oafEntity.getId());
             return null;
         }
         DocumentMetadata.Builder builder = DocumentMetadata.newBuilder();
         builder.setId(oafEntity.getId());
+        
+        ResultProtos.Result sourceResult = oafEntity.getResult();
         createBasicMetadata(sourceResult, builder);
         handleAdditionalIds(oafEntity, builder);
         handleDatasourceIds(oafEntity, builder);

@@ -27,18 +27,18 @@ public class CommonAffSectionWordsVoter extends AbstractAffOrgMatchVoter {
     private static final long serialVersionUID = 1L;
     
     
-    private OrganizationSectionsSplitter organizationSectionsSplitter = new OrganizationSectionsSplitter();
+    private final OrganizationSectionsSplitter organizationSectionsSplitter = new OrganizationSectionsSplitter();
     
-    private StringFilter stringFilter = new StringFilter();
+    private final StringFilter stringFilter = new StringFilter();
     
     private CommonSimilarWordCalculator commonSimilarWordCalculator; 
     
     
-    private List<Character> charsToFilter;
+    private final List<Character> charsToFilter;
     
-    private double minCommonWordsRatio;
+    private final double minCommonWordsRatio;
     
-    private int wordToRemoveMaxLength;
+    private final int wordToRemoveMaxLength;
     
     private Function<AffMatchOrganization, List<String>> getOrgNamesFunction = new GetOrgNameFunction();
     
@@ -61,12 +61,13 @@ public class CommonAffSectionWordsVoter extends AbstractAffOrgMatchVoter {
      */
     public CommonAffSectionWordsVoter(List<Character> charsToFilter, int wordToRemoveMaxLength, double minFittingOrgWordsRatio) {
         
+        super();
+        
         Preconditions.checkNotNull(charsToFilter);
         
         Preconditions.checkArgument(wordToRemoveMaxLength >= 0);
         
         Preconditions.checkArgument(minFittingOrgWordsRatio > 0 && minFittingOrgWordsRatio <= 1);
-        
         
         this.charsToFilter = charsToFilter;
         

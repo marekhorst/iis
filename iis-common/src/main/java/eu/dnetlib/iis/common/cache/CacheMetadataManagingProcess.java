@@ -212,7 +212,6 @@ public class CacheMetadataManagingProcess implements eu.dnetlib.iis.common.java.
 	public void run(PortBindings portBindings, Configuration conf,
 			Map<String, String> parameters) throws Exception {
 		String mode = parameters.get(PARAM_MODE);
-		File file = new File(System.getProperty(OOZIE_ACTION_OUTPUT_FILENAME));
         Properties props = new Properties();
 		if (MODE_READ_CURRENT_ID.equals(mode)) {
 			props.setProperty(OUTPUT_PROPERTY_CACHE_ID, 
@@ -225,6 +224,7 @@ public class CacheMetadataManagingProcess implements eu.dnetlib.iis.common.java.
 		} else {
 			throw new RuntimeException("unsupported mode: " + mode);	
 		}
+		File file = new File(System.getProperty(OOZIE_ACTION_OUTPUT_FILENAME));
         OutputStream os = new FileOutputStream(file);
         try {
         	props.store(os, "");	

@@ -30,17 +30,17 @@ public class CommonWordsVoter extends AbstractAffOrgMatchVoter {
                                /** the ratio of common words will be calculated with regard to the number of words in organization name in an organization object */
                                WITH_REGARD_TO_ORG_WORDS}
     
-    private StringFilter stringFilter = new StringFilter();
+    private final StringFilter stringFilter = new StringFilter();
     
     private CommonSimilarWordCalculator commonSimilarWordCalculator; 
     
-    private RatioRelation ratioRelation = null;
+    private RatioRelation ratioRelation;
     
-    private List<Character> charsToFilter;
+    private final List<Character> charsToFilter;
     
-    private double minCommonWordsRatio;
+    private final double minCommonWordsRatio;
     
-    private int wordToRemoveMaxLength;
+    private final int wordToRemoveMaxLength;
     
     private Function<AffMatchOrganization, List<String>> getOrgNamesFunction = new GetOrgNameFunction();
     
@@ -59,6 +59,8 @@ public class CommonWordsVoter extends AbstractAffOrgMatchVoter {
      * @see StringSimilarityChecker#containsSimilarString(java.util.Collection, String, double)
      */
     public CommonWordsVoter(List<Character> charsToFilter, int wordToRemoveMaxLength, double minCommonWordsRatio, RatioRelation ratioRelation) {
+        
+        super();
         
         Preconditions.checkNotNull(charsToFilter);
         

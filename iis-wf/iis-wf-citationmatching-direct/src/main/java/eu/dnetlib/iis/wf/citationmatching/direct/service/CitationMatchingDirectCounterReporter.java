@@ -24,7 +24,7 @@ public class CitationMatchingDirectCounterReporter {
     private static final String DOCS_WITH_MATCHED_CITATIONS_COUNTER = "processing.citationMatching.direct.doc";
     
     
-    private SparkAvroSaver avroSaver = new SparkAvroSaver();
+    private final SparkAvroSaver avroSaver = new SparkAvroSaver();
     
     
     //------------------------ LOGIC --------------------------

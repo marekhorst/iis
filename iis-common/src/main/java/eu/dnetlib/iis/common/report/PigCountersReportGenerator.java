@@ -45,11 +45,11 @@ public class PigCountersReportGenerator implements Process {
     private static final String PIG_COUNTERS_PROPERTY = "pigCounters";
     
     
-    private PigCountersParser pigCountersParser = new PigCountersParser();
+    private final PigCountersParser pigCountersParser = new PigCountersParser();
     
-    private ReportPigCounterMappingParser reportPigCounterMappingParser = new ReportPigCounterMappingParser();
+    private final ReportPigCounterMappingParser reportPigCounterMappingParser = new ReportPigCounterMappingParser();
     
-    private ReportPigCountersResolver reportPigCountersResolver = new ReportPigCountersResolver();
+    private final ReportPigCountersResolver reportPigCountersResolver = new ReportPigCountersResolver();
     
     
     //------------------------ LOGIC --------------------------

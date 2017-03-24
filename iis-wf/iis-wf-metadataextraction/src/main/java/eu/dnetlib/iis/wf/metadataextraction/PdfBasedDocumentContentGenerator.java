@@ -37,12 +37,17 @@ public class PdfBasedDocumentContentGenerator implements eu.dnetlib.iis.common.j
 	
 	private static final Logger log = Logger.getLogger(PdfBasedDocumentContentGenerator.class);
 	
-	private static final Map<String, PortType> outputPorts = new HashMap<String, PortType>(); 
+	private final Map<String, PortType> outputPorts = new HashMap<String, PortType>(); 
 	
-	{
-		outputPorts.put(PORT_OUT_DOC_CONTENT, 
-				new AvroPortType(DocumentContent.SCHEMA$));
+	
+	// ----------------------------- CONSTRUCTORS ------------------------------------
+	
+	public PdfBasedDocumentContentGenerator() {
+		outputPorts.put(PORT_OUT_DOC_CONTENT, new AvroPortType(DocumentContent.SCHEMA$));
 	}
+	
+	
+	// ----------------------------- LOGIC -------------------------------------------
 	
 	@Override
 	public Map<String, PortType> getInputPorts() {
@@ -70,7 +75,7 @@ public class PdfBasedDocumentContentGenerator implements eu.dnetlib.iis.common.j
 				LocatedFileStatus fileStatus = filesIt.next();
 				if (!fileStatus.isDirectory()) {
 					DocumentContent.Builder docContentBuilder = DocumentContent.newBuilder();
-					docContentBuilder.setId("" + System.currentTimeMillis() + '-' + idx);
+					docContentBuilder.setId(String.valueOf(System.currentTimeMillis()) + '-' + idx);
 					
 					FSDataInputStream inputStream = fs.open(fileStatus.getPath());
 					try {
