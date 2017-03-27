@@ -327,7 +327,7 @@ public class ImportInformationSpaceReducer
      *
      * @param <T>
      */
-    class RelationConversionDTO <T extends SpecificRecord> {
+    private static class RelationConversionDTO <T extends SpecificRecord> {
         
         private final List<QualifiedOafJsonRecord> oafJsonParts;
         
