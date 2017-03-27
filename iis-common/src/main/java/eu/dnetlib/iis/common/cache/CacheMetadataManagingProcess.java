@@ -56,9 +56,8 @@ public class CacheMetadataManagingProcess implements eu.dnetlib.iis.common.java.
 	public static final String DEFAULT_ENCODING = "UTF-8";
 	
 	public class CacheMeta {
-		protected String currentCacheId;
-//		TODO handle this property in a safe way!
-//		protected boolean isCacheUnderConstruction;
+
+	    protected String currentCacheId;
 
 		public String getCurrentCacheId() {
 			return currentCacheId;
