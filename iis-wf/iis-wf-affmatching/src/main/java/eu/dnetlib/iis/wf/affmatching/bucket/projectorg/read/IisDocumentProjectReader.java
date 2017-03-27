@@ -22,9 +22,9 @@ public class IisDocumentProjectReader implements DocumentProjectReader {
     private static final long serialVersionUID = 1L;
 
 
-    private final SparkAvroLoader avroLoader = new SparkAvroLoader();
+    private SparkAvroLoader avroLoader = new SparkAvroLoader();
     
-    private final DocumentProjectConverter converter = new DocumentProjectConverter();
+    private DocumentProjectConverter converter = new DocumentProjectConverter();
 
 
     //------------------------ LOGIC --------------------------

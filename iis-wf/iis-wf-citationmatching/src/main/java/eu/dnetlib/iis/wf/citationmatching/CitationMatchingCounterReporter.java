@@ -25,7 +25,7 @@ public class CitationMatchingCounterReporter {
     private static final String DOCS_WITH_MATCHED_CITATIONS_COUNTER = "processing.citationMatching.fuzzy.doc";
     
     
-    private final SparkAvroSaver avroSaver = new SparkAvroSaver();
+    private SparkAvroSaver avroSaver = new SparkAvroSaver();
     
     private String reportPath;
     

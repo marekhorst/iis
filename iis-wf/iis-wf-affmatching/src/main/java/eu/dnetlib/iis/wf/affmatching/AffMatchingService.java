@@ -45,16 +45,16 @@ public class AffMatchingService implements Serializable {
     private AffiliationReader affiliationReader;
     
     
-    private final AffMatchAffiliationNormalizer affMatchAffiliationNormalizer = new AffMatchAffiliationNormalizer();
+    private AffMatchAffiliationNormalizer affMatchAffiliationNormalizer = new AffMatchAffiliationNormalizer();
     
-    private final AffMatchOrganizationNormalizer affMatchOrganizationNormalizer = new AffMatchOrganizationNormalizer();
+    private AffMatchOrganizationNormalizer affMatchOrganizationNormalizer = new AffMatchOrganizationNormalizer();
     
     private AffMatchOrganizationAltNameFiller affMatchOrganizationAltNameFiller = new AffMatchOrganizationAltNameFiller();
     
     
     private List<AffOrgMatcher> affOrgMatchers;
     
-    private final AffMatchResultChooser affMatchResultChooser = new AffMatchResultChooser();
+    private AffMatchResultChooser affMatchResultChooser = new AffMatchResultChooser();
     
     
     private AffMatchResultWriter affMatchResultWriter;

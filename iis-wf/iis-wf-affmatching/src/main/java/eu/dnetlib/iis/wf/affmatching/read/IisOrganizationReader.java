@@ -25,9 +25,9 @@ public class IisOrganizationReader implements Serializable, OrganizationReader {
     private static final long serialVersionUID = 1L;
     
     
-    private final OrganizationConverter organizationConverter = new OrganizationConverter();
+    private OrganizationConverter organizationConverter = new OrganizationConverter();
     
-    private final SparkAvroLoader sparkAvroLoader = new SparkAvroLoader();
+    private SparkAvroLoader sparkAvroLoader = new SparkAvroLoader();
     
     
 

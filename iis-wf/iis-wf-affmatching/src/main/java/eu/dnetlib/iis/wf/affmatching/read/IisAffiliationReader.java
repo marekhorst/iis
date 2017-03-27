@@ -24,9 +24,9 @@ public class IisAffiliationReader implements Serializable, AffiliationReader {
     private static final long serialVersionUID = 1L;
     
     
-    private final AffiliationConverter affiliationConverter = new AffiliationConverter();
+    private AffiliationConverter affiliationConverter = new AffiliationConverter();
     
-    private final SparkAvroLoader sparkAvroLoader = new SparkAvroLoader();
+    private SparkAvroLoader sparkAvroLoader = new SparkAvroLoader();
     
     
     

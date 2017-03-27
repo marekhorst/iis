@@ -53,7 +53,7 @@ public class OozieTimeReportGenerator implements Process {
     private static final String REPORT_PROPERTY_PREFIX = "report.";
     
     
-    private final OozieClientFactory oozieClientFactory = new OozieClientFactory();
+    private OozieClientFactory oozieClientFactory = new OozieClientFactory();
 
     
     //------------------------ LOGIC --------------------------

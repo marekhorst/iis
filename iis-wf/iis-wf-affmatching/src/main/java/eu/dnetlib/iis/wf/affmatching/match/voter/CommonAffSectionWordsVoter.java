@@ -27,9 +27,9 @@ public class CommonAffSectionWordsVoter extends AbstractAffOrgMatchVoter {
     private static final long serialVersionUID = 1L;
     
     
-    private final OrganizationSectionsSplitter organizationSectionsSplitter = new OrganizationSectionsSplitter();
+    private OrganizationSectionsSplitter organizationSectionsSplitter = new OrganizationSectionsSplitter();
     
-    private final StringFilter stringFilter = new StringFilter();
+    private StringFilter stringFilter = new StringFilter();
     
     private CommonSimilarWordCalculator commonSimilarWordCalculator; 
     

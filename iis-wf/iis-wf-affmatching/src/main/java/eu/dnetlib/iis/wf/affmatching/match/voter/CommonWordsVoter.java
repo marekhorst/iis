@@ -30,7 +30,7 @@ public class CommonWordsVoter extends AbstractAffOrgMatchVoter {
                                /** the ratio of common words will be calculated with regard to the number of words in organization name in an organization object */
                                WITH_REGARD_TO_ORG_WORDS}
     
-    private final StringFilter stringFilter = new StringFilter();
+    private StringFilter stringFilter = new StringFilter();
     
     private CommonSimilarWordCalculator commonSimilarWordCalculator; 
     

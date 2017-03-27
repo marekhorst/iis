@@ -31,7 +31,7 @@ public class AffOrgMatchComputer implements Serializable {
     
     private List<AffOrgMatchVoter> affOrgMatchVoters;
     
-    private final AffOrgMatchStrengthRecalculator affOrgMatchStrengthRecalculator = new AffOrgMatchStrengthRecalculator();
+    private AffOrgMatchStrengthRecalculator affOrgMatchStrengthRecalculator = new AffOrgMatchStrengthRecalculator();
     
     
     
