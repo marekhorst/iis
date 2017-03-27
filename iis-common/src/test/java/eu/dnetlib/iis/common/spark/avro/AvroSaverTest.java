@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.DataFrame;
+import org.apache.spark.sql.SQLContext;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -92,5 +96,40 @@ public class AvroSaverTest {
         
         
     }
+    
+    
+    
+    //------------------------ LOGIC --------------------------
+    
+    public static void main(String[] args) throws IOException {
+        
+        
+        SparkConf conf = new SparkConf();
+       
+        conf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
+        
+        
+        try (JavaSparkContext sc = new JavaSparkContext(conf)) {
+
+            SQLContext sqlContext = new SQLContext(sc);
+            
+            DataFrame countries = sqlContext.jsonFile("src/test/resources/eu/dnetlib/iis/common/avro/countries.json");
+            
+            // without these 2 lines below there is no guarantee as to the field order and then 
+            // they can be saved not in accordance with avro schema
+            countries.registerTempTable("countries");
+            countries = sqlContext.sql("select id, name, iso from countries");
+            
+            log.info(countries.javaRDD().collect().toString());
+            
+            AvroSaver.save(countries, Country.SCHEMA$, outputDirPath);
+
+            
+        }
+        
+        
+    }
+
+    
   
 }
