@@ -93,7 +93,7 @@ public class CitationMatchingOutputTransformerJobTest {
                 .setMainClass(CitationMatchingOutputTransformerJob.class)
                 .addArg("-input", inputDirPath)
                 .addArg("-output", outputDirPath)
-                
+                .addJobProperty("spark.driver.host", "localhost")
                 .build();
         
         return sparkJob;

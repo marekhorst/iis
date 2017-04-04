@@ -34,6 +34,12 @@ public class DocumentProjectMergerTest {
         
         conf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
         conf.set("spark.kryo.registrator", "pl.edu.icm.sparkutils.avro.AvroCompatibleKryoRegistrator");
+
+        /* mateuszn, 2017-04-04, there were errors
+         * AssertionError: assertion failed: Expected hostname at eu.dnetlib.iis.wf.affmatching.bucket.
+         * projectorg.read.DocumentProjectMergerTest.setup(DocumentProjectMergerTest.java:38)
+         */
+        conf.set("spark.driver.host", "localhost");
         
         sparkContext = new JavaSparkContext(conf);
         
