@@ -107,7 +107,7 @@ public class AvroSaverTest {
         SparkConf conf = new SparkConf();
        
         conf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
-        conf.addJobProperty("spark.driver.host", "localhost") 
+        conf.addJobProperty("spark.driver.host", "localhost");
         
         
         try (JavaSparkContext sc = new JavaSparkContext(conf)) {
